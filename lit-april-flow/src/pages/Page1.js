@@ -1,6 +1,8 @@
-import Paragraph from "../components/Page1/Paragraph";
 import { Box, Button } from "@mui/material";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
+
+import Paragraph from "../components/Page1/Paragraph";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -10,7 +12,7 @@ const useStyles = makeStyles(() => ({
   box: {
     width: "90%",
     margin: "0 3rem",
-    border: "3px solid gray",
+    border: "3px solid #e3e3e3",
     borderRadius: "1rem",
 
     display: "flex",
@@ -43,6 +45,10 @@ const useStyles = makeStyles(() => ({
   },
   agree: {
     width: "65%",
+  },
+  link: {
+    textDecoration: "none",
+    color: "white",
   },
 }));
 
@@ -125,7 +131,11 @@ const Page1 = () => {
         ></script>
 
         <Box className={classes.buttons}>
-          <Button variant="outlined" className={classes.cancel}>
+          <Button
+            variant="outlined"
+            className={classes.cancel}
+            onClick={window.close()}
+          >
             Cancel
           </Button>
 
@@ -134,7 +144,9 @@ const Page1 = () => {
             className={classes.agree}
             style={{ background: "#040a4f" }}
           >
-            I have read and agree with the term of use
+            <Link to="/page_2" className={classes.link}>
+              I have read and agree with the term of use
+            </Link>
           </Button>
         </Box>
 

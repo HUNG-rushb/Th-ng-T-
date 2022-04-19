@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
   bar: {
     position: "static",
     // position: "fixed",
-    // background: "#040a4f",
+    // backgroundColor: "#040a4f",
     fontFamily: "'Open Sans', cursive",
     marginBottom: "14rem",
   },
