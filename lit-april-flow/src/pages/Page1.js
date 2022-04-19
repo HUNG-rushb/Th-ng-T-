@@ -97,6 +97,10 @@ const Page1 = () => {
   //   recaptcha_response = token;
   //   document.getElementById("g-recaptcha-error").innerHTML = "";
   // }
+  const quitHandler = (e) => {
+    e.preventDefault();
+    window.close();
+  };
 
   return (
     <div className={classes.container}>
@@ -134,7 +138,7 @@ const Page1 = () => {
           <Button
             variant="outlined"
             className={classes.cancel}
-            onClick={window.close()}
+            onClick={quitHandler}
           >
             Cancel
           </Button>
