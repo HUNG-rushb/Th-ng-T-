@@ -115,9 +115,14 @@ const Page1 = () => {
         </Box>
 
         <div
-          className="g-recaptcha brochure__form__captcha"
+          className="g-recaptcha"
           data-sitekey="6Lc5WYQfAAAAAFNWBSXRahFUMtMzxP9ROBGWFgI1"
         ></div>
+        <script
+          src="https://www.google.com/recaptcha/api.js"
+          async
+          defer
+        ></script>
 
         <Box className={classes.buttons}>
           <Button variant="outlined" className={classes.cancel}>
@@ -133,7 +138,7 @@ const Page1 = () => {
           </Button>
         </Box>
 
-        <script src="https://www.google.com/recaptcha/api.js"></script>
+        {/* <script src="https://www.google.com/recaptcha/api.js"></script> */}
         {/* <form method="post" onsubmit="return submitUserForm();">
           <div
             class="g-recaptcha"
