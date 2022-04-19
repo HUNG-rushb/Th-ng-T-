@@ -1,5 +1,5 @@
 import { Box, Button } from "@mui/material";
-import { Link } from "react-router-dom";
+
 import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
 
@@ -53,11 +53,6 @@ const useStyles = makeStyles(() => ({
     // fontSize: "1.2rem",
   },
 
-  link: {
-    textDecoration: "none",
-    color: "white",
-    // fontSize: "1.2rem",
-  },
   line: {
     backgroundColor: "gray",
   },
