@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Box, Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import ReCAPTCHA from "react-google-recaptcha";
+
 import { makeStyles } from "@mui/styles";
 
 import Paragraph from "../components/Page1/Paragraph";
@@ -99,10 +100,7 @@ const useStyles = makeStyles(() => ({
     color: "gray",
     outline: "none",
   },
-  link: {
-    textDecoration: "none",
-    color: "white",
-  },
+
   pusher: {
     height: "4rem",
     margin: "0",
@@ -135,20 +133,11 @@ const Page1 = () => {
     window.close();
   };
 
-  console.log(grecaptcha.getResponse());
+  // console.log(grecaptcha.getResponse());
 
   return (
     <div className={classes.container}>
-      <Box
-        className={classes.box}
-        // sx={{
-        //   backgroundColor: "primary.dark",
-        //   "&:hover": {
-        //     backgroundColor: "primary.main",
-        //     opacity: [0.9, 0.8, 0.7],
-        //   },
-        // }}
-      >
+      <Box className={classes.box}>
         <h1 className={classes.title}>Thank you for you interest</h1>
 
         <i className={classes.title2}>Please read the in formation below</i>
@@ -160,13 +149,24 @@ const Page1 = () => {
         </Box>
 
         {/* https://stackoverflow.com/questions/3232904/using-recaptcha-on-localhost */}
-        <div
+        {/* <div
           className="g-recaptcha"
           data-sitekey="6Lc5WYQfAAAAAFNWBSXRahFUMtMzxP9ROBGWFgI1"
         />
-        <Helmet>
-          <script src="https://www.google.com/recaptcha/api.js" async defer />
-        </Helmet>
+         */}
+        {/* https://www.npmjs.com/package/react-google-recaptcha */}
+        <ReCAPTCHA
+          sitekey="6Lc5WYQfAAAAAFNWBSXRahFUMtMzxP9ROBGWFgI1"
+          onChange={() => {
+            setAgree(true);
+          }}
+          onErrored={() => {
+            setAgree(false);
+          }}
+          onExpired={() => {
+            setAgree(false);
+          }}
+        />
 
         <Box className={classes.buttons}>
           <Button
@@ -178,22 +178,16 @@ const Page1 = () => {
           </Button>
 
           <Button
+            component={Link}
+            to="/page_2"
             variant="contained"
-            // variant="outlined"
-            // className={agree ? classes.agree : classes.disagree}
-            className={classes.agree}
             color="primary"
+            className={classes.agree}
             disabled={!agree}
           >
-            <Link to="/page_2" className={classes.link}>
-              I have read and agree with the term of use
-            </Link>
+            I have read and agree with the term of use
           </Button>
         </Box>
-
-        {/* <Button color="primary" variant="contained">
-          test
-        </Button> */}
       </Box>
 
       <div className={classes.pusher} />

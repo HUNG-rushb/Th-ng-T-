@@ -40,11 +40,6 @@ const useStyles = makeStyles(() => ({
     width: "25%",
     margin: "2rem",
   },
-
-  // link: {
-  //   textDecoration: "none",
-  //   color: "white",
-  // },
   pusher: {
     height: "4rem",
     margin: "0",

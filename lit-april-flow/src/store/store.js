@@ -3,7 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./reducers/counterReducer.js";
 
 const store = configureStore({
-  reducer: { counter: counterReducer, auth: authReducer },
+  reducer: { textCounter: counterReducer },
 });
 
 export default store;

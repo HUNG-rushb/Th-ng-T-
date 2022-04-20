@@ -1,6 +1,11 @@
 import { Box, Button } from "@mui/material";
+import { Link } from "react-router-dom";
+import Form from "../components/Page4/Form";
+
 import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
+
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -11,8 +16,6 @@ const useStyles = makeStyles(() => ({
   },
   box: {
     width: "75%",
-    // padding: "1rem",
-    // margin: "0 3rem",
     margin: "auto",
     border: "3px solid #e3e3e3",
     borderRadius: "1rem",
@@ -21,9 +24,7 @@ const useStyles = makeStyles(() => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-evenly",
-
     rowGap: "2rem",
-
     color: "#13428f",
   },
   text: {
@@ -45,7 +46,6 @@ const useStyles = makeStyles(() => ({
     width: "55%",
     textAlign: "center",
   },
-
   title: {
     margin: "0",
     marginTop: "4rem",
@@ -53,14 +53,10 @@ const useStyles = makeStyles(() => ({
     width: "60%",
     padding: "0 2rem",
   },
-
   button: {
     width: "35%",
     margin: "2rem",
-    // padding: "3rem",
-    // fontSize: "1.2rem",
   },
-
   buttons: {
     width: "55%",
     margin: "0",
@@ -69,19 +65,12 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     justifyContent: "space-between",
   },
-
   cancel: {
     width: "30%",
   },
   agree: {
     width: "65%",
   },
-
-  // link: {
-  //   textDecoration: "none",
-  //   color: "white",
-  // },
-
   line: {
     backgroundColor: "gray",
   },
@@ -98,9 +87,9 @@ const Page4 = () => {
   const classes = useStyles();
   const navigate = useNavigate();
 
-  // const quitHandler = () => {
-  //   window.close();
-  // };
+  const submitHandler = () => {
+    console.log(1);
+  };
 
   return (
     <div className={classes.container}>
@@ -133,6 +122,8 @@ const Page4 = () => {
           change your mind, you can always opt-out at a later date.
         </p>
 
+        <Form />
+
         <i className={classes.note}>
           <b>Please note:</b> your name and email address will not be linked
           with your survey answers.
@@ -143,11 +134,19 @@ const Page4 = () => {
             variant="outlined"
             className={classes.cancel}
             onClick={() => navigate(-1)}
+            startIcon={<ChevronLeftIcon />}
           >
             Back to Survey
           </Button>
 
-          <Button variant="contained" className={classes.agree} color="primary">
+          <Button
+            component={Link}
+            to="/"
+            variant="contained"
+            className={classes.agree}
+            color="primary"
+            onClick={submitHandler}
+          >
             Submit
           </Button>
         </Box>
