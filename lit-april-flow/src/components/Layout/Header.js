@@ -21,15 +21,14 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const useStyles = makeStyles(() => ({
   bar: {
-    position: "static",
-    // position: "fixed",
-    // backgroundColor: "#040a4f",
     fontFamily: "'Open Sans', cursive",
-    marginBottom: "14rem",
+    // marginBottom: "5rem",
+    height: "4rem",
   },
 
   container: {
     width: "100%",
+
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -57,7 +56,7 @@ const Header = () => {
 
   return (
     <React.Fragment>
-      <AppBar className={classes.bar} style={{ background: "#040a4f" }}>
+      <AppBar className={classes.bar} color="primary" position="sticky">
         {/* <CssBaseline /> */}
 
         <Toolbar>

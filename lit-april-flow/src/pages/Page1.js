@@ -1,56 +1,9 @@
+import { useState } from "react";
 import { Box, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 
 import Paragraph from "../components/Page1/Paragraph";
-
-const useStyles = makeStyles(() => ({
-  container: {
-    fontFamily: "'Open Sans', cursive",
-    marginTop: "8rem",
-  },
-  box: {
-    width: "90%",
-    margin: "0 3rem",
-    border: "3px solid #e3e3e3",
-    borderRadius: "1rem",
-
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  small_box: {
-    width: "70%",
-    margin: "2rem 0",
-    // padding: "2rem",
-
-    borderRadius: "1rem",
-    backgroundColor: "#b8d7ff",
-
-    display: "flex",
-    flexDirection: "column",
-  },
-  buttons: {
-    width: "70%",
-    margin: "2rem 0",
-
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  cancel: {
-    background: "white",
-    color: "#040a4f",
-    width: "30%",
-  },
-  agree: {
-    width: "65%",
-  },
-  link: {
-    textDecoration: "none",
-    color: "white",
-  },
-}));
 
 const text = [
   {
@@ -79,24 +32,103 @@ const text = [
   },
 ];
 
+const useStyles = makeStyles(() => ({
+  container: {
+    fontFamily: "'Open Sans', cursive",
+
+    minHeight: "calc(100vh - 8rem)",
+    marginBottom: "-4rem",
+    padding: "5rem 0",
+  },
+  box: {
+    width: "90%",
+    // margin: "0 3rem",
+    margin: "auto",
+    border: "3px solid #e3e3e3",
+    borderRadius: "1rem",
+
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    rowGap: "0.8rem",
+  },
+  title: {
+    margin: "0",
+    marginTop: "4rem",
+    padding: "0 2rem",
+  },
+  title2: {
+    margin: "0",
+
+    padding: "0 2rem",
+  },
+  small_box: {
+    width: "70%",
+    margin: "2rem 0",
+    // padding: "2rem",
+
+    borderRadius: "3rem",
+    backgroundColor: "#b8d7ff",
+
+    display: "flex",
+    flexDirection: "column",
+  },
+  buttons: {
+    width: "70%",
+    margin: "2rem 0",
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  cancel: {
+    // background: "red",
+    // color: "#040a4f",
+    color: "red",
+    width: "30%",
+  },
+  agree: {
+    width: "65%",
+    background: "#040a4f",
+    color: "white",
+  },
+  disagree: {
+    width: "65%",
+    background: "white",
+    color: "gray",
+    outline: "none",
+  },
+  link: {
+    textDecoration: "none",
+    color: "white",
+  },
+  pusher: {
+    height: "4rem",
+    margin: "0",
+  },
+}));
+
 const Page1 = () => {
   const classes = useStyles();
 
+  const [agree, setAgree] = useState(false);
+
   // let recaptcha_response = "";
 
-  // function submitUserForm() {
+  // const submitUserForm = () => {
   //   if (recaptcha_response.length == 0) {
   //     document.getElementById("g-recaptcha-error").innerHTML =
   //       '<span style="color:red;">This field is required.</span>';
   //     return false;
   //   }
   //   return true;
-  // }
+  // };
 
-  // function verifyCaptcha(token) {
+  // const verifyCaptcha = (token) => {
   //   recaptcha_response = token;
   //   document.getElementById("g-recaptcha-error").innerHTML = "";
-  // }
+  // };
+
   const quitHandler = (e) => {
     e.preventDefault();
     window.close();
@@ -114,9 +146,9 @@ const Page1 = () => {
         //   },
         // }}
       >
-        <h1>Thank you for you interest</h1>
+        <h1 className={classes.title}>Thank you for you interest</h1>
 
-        <i>Please read the in formation below</i>
+        <i className={classes.title2}>Please read the in formation below</i>
 
         <Box className={classes.small_box}>
           {text.map((para, index) => (
@@ -124,15 +156,12 @@ const Page1 = () => {
           ))}
         </Box>
 
+        {/* https://stackoverflow.com/questions/3232904/using-recaptcha-on-localhost */}
         <div
           className="g-recaptcha"
           data-sitekey="6Lc5WYQfAAAAAFNWBSXRahFUMtMzxP9ROBGWFgI1"
-        ></div>
-        <script
-          src="https://www.google.com/recaptcha/api.js"
-          async
-          defer
-        ></script>
+        />
+        <script src="https://www.google.com/recaptcha/api.js" async defer />
 
         <Box className={classes.buttons}>
           <Button
@@ -145,8 +174,11 @@ const Page1 = () => {
 
           <Button
             variant="contained"
+            // variant="outlined"
+            // className={agree ? classes.agree : classes.disagree}
             className={classes.agree}
-            style={{ background: "#040a4f" }}
+            color="primary"
+            disabled={!agree}
           >
             <Link to="/page_2" className={classes.link}>
               I have read and agree with the term of use
@@ -154,17 +186,12 @@ const Page1 = () => {
           </Button>
         </Box>
 
-        {/* <script src="https://www.google.com/recaptcha/api.js"></script> */}
-        {/* <form method="post" onsubmit="return submitUserForm();">
-          <div
-            class="g-recaptcha"
-            data-sitekey="6Lc5WYQfAAAAAFNWBSXRahFUMtMzxP9ROBGWFgI1"
-            data-callback="verifyCaptcha"
-          ></div>
-          <div id="g-recaptcha-error"></div>
-          <input type="submit" name="submit" value="Submit" />
-        </form> */}
+        {/* <Button color="primary" variant="contained">
+          test
+        </Button> */}
       </Box>
+
+      <div className={classes.pusher} />
     </div>
   );
 };

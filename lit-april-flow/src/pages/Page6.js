@@ -2,17 +2,18 @@ import { Box, Button } from "@mui/material";
 
 import { makeStyles } from "@mui/styles";
 
+// https://css-tricks.com/couple-takes-sticky-footer/
 const useStyles = makeStyles(() => ({
   container: {
     fontFamily: "'Open Sans', cursive",
-    marginTop: "8rem",
-    overflow: "visible",
-    // fontSize: "1.2rem",
+
+    minHeight: "calc(100vh - 8rem)",
+    marginBottom: "-4rem",
+    paddingTop: "5rem",
   },
   box: {
-    width: "90%",
-    // padding: "1rem",
-    margin: "0 3rem",
+    width: "70%",
+    margin: "auto",
     border: "3px solid #e3e3e3",
     borderRadius: "1rem",
 
@@ -20,9 +21,7 @@ const useStyles = makeStyles(() => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-evenly",
-
     rowGap: "2rem",
-
     color: "#13428f",
   },
   textCenter: {
@@ -46,6 +45,10 @@ const useStyles = makeStyles(() => ({
   //   textDecoration: "none",
   //   color: "white",
   // },
+  pusher: {
+    height: "4rem",
+    margin: "0",
+  },
 }));
 
 const Page6 = () => {
@@ -60,7 +63,7 @@ const Page6 = () => {
 
         <Button
           variant="contained"
-          style={{ background: "#040a4f" }}
+          color="primary"
           className={classes.button}
           onClick={() => {
             window.location = "https://gameloft.com";
@@ -71,8 +74,10 @@ const Page6 = () => {
           {/* </a> */}
         </Button>
 
-        <div></div>
+        <div />
       </Box>
+
+      <div className={classes.pusher} />
     </div>
   );
 };

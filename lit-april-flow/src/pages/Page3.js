@@ -6,14 +6,16 @@ import { useNavigate } from "react-router-dom";
 const useStyles = makeStyles(() => ({
   container: {
     fontFamily: "'Open Sans', cursive",
-    marginTop: "8rem",
-    overflow: "visible",
-    // fontSize: "1.2rem",
+
+    minHeight: "calc(100vh - 8rem)",
+    marginBottom: "-4rem",
+    padding: "5rem 0",
   },
   box: {
-    width: "90%",
+    width: "70%",
     // padding: "1rem",
-    margin: "0 3rem",
+    // margin: "0 3rem",
+    margin: "auto",
     border: "3px solid #e3e3e3",
     borderRadius: "1rem",
 
@@ -23,7 +25,6 @@ const useStyles = makeStyles(() => ({
     justifyContent: "space-evenly",
 
     rowGap: "2rem",
-
     color: "#13428f",
   },
   text: {
@@ -44,6 +45,7 @@ const useStyles = makeStyles(() => ({
   title: {
     margin: "0",
     marginTop: "4rem",
+    padding: "0 2rem",
   },
 
   button: {
@@ -55,6 +57,10 @@ const useStyles = makeStyles(() => ({
 
   line: {
     backgroundColor: "gray",
+  },
+  pusher: {
+    height: "4rem",
+    margin: "0",
   },
 }));
 
@@ -110,6 +116,8 @@ const Page3 = () => {
 
         <div></div>
       </Box>
+
+      <div className={classes.pusher} />
     </div>
   );
 };
