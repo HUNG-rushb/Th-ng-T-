@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Box, Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import { makeStyles } from "@mui/styles";
 
 import Paragraph from "../components/Page1/Paragraph";
@@ -134,6 +135,8 @@ const Page1 = () => {
     window.close();
   };
 
+  console.log(grecaptcha.getResponse());
+
   return (
     <div className={classes.container}>
       <Box
@@ -161,7 +164,9 @@ const Page1 = () => {
           className="g-recaptcha"
           data-sitekey="6Lc5WYQfAAAAAFNWBSXRahFUMtMzxP9ROBGWFgI1"
         />
-        <script src="https://www.google.com/recaptcha/api.js" async defer />
+        <Helmet>
+          <script src="https://www.google.com/recaptcha/api.js" async defer />
+        </Helmet>
 
         <Box className={classes.buttons}>
           <Button
