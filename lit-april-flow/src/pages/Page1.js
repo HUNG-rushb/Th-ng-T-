@@ -14,7 +14,7 @@ const text = [
   },
   {
     title: "What would i need to do?",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. \nCurabitur imperdiet est ut sodales blandit. Ut rhoncus accumsan dui, at ornare justo cursus sit amet. Nam eget aliquam sapien, id pellentesque urna. Nullam accumsan vitae est sit amet placerat. Proin mollis, tellus vitae porta dictum, odio ligula imperdiet ante, vel porttitor lorem neque at orci. Vivamus ut risus sit amet odio convallis eleifend. Donec sed lorem ligula. Ut vel nunc faucibus, faucibus nibh nec, condimentum ex. Sed eget lacus mattis, feugiat mi et, dictum diam. Donec at fermentum urna. Sed luctus, enim in lobortis consectetur, lorem enim congue ex, eu efficitur tortor eros sit amet erat. Aliquam non sem pulvinar, eleifend purus vitae, vestibulum nisi. Etiam suscipit felis eu tristique fringilla. ",
+    desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis semper faucibus. Sed ultricies scelerisque nisi ac sollicitudin. Nulla porttitor lorem vel egestas dignissim. Vestibulum a erat ut sapien scelerisque scelerisque. Pellentesque aliquam ex condimentum venenatis rhoncus. Donec quis orci purus. Nulla euismod enim placerat leo iaculis, non auctor augue vestibulum. Nunc nec quam id lacus laoreet egestas eu at erat. Proin varius vestibulum elit quis lobortis. Duis tristique eros et tellus faucibus ultrices. Duis consectetur porta mi, ac aliquam nunc finibus eget. Maecenas ac mi sollicitudin, faucibus mauris nec, ullamcorper tellus. Duis id laoreet enim, non pulvinar metus. Suspendisse sem ipsum, condimentum ut lorem non, accumsan posuere massa. Curabitur ac viverra magna. \n\n Duis pretium accumsan mauris, cursus elementum lectus dignissim eu. Integer sed eros cursus, laoreet tortor in, tempus velit. Sed porta, dui in molestie mattis, mi magna molestie orci, a porta nibh augue a ipsum. Maecenas quis lorem augue. Suspendisse in hendrerit est. Nullam dignissim est vel ex placerat feugiat. Nam vel risus lectus. Vivamus quam neque, ultrices vitae libero sed, rhoncus imperdiet sapien. Vestibulum elit metus, pretium sed nisi vitae, blandit placerat quam. Aliquam tincidunt dolor vitae nibh interdum fringilla. Suspendisse congue dolor in vehicula mattis. Ut luctus nisl eu leo facilisis, eget hendrerit dui sollicitudin. Pellentesque lacinia sagittis quam sed porttitor. Pellentesque pretium elit odio, ut fringilla enim tincidunt ac. \n\nUt id enim id velit semper maximus. Sed vitae volutpat odio, sit amet dictum arcu. Nunc ut tempus ipsum. Phasellus sed erat nisi. Quisque et turpis metus. Integer nulla urna, semper quis diam eu, fermentum viverra purus. Sed ornare faucibus leo, at gravida dui blandit a.`,
   },
   {
     title: "How will we use the information?",
@@ -63,6 +63,13 @@ const useStyles = makeStyles(() => ({
     margin: "0",
 
     padding: "0 2rem",
+  },
+  textCenter: {
+    margin: "0",
+
+    fontSize: "1.2rem",
+    width: "55%",
+    textAlign: "center",
   },
   small_box: {
     width: "70%",
@@ -141,6 +148,12 @@ const Page1 = () => {
         <h1 className={classes.title}>Thank you for you interest</h1>
 
         <i className={classes.title2}>Please read the in formation below</i>
+
+        <p className={classes.textCenter}>
+          Once you have read and understood the information. If you agree to
+          take part in the research, click on the <b>"I Agree"</b>button to
+          begin the survey.
+        </p>
 
         <Box className={classes.small_box}>
           {text.map((para, index) => (
