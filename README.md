@@ -4,6 +4,13 @@
 https://lit-april-flow.vercel.app/
 
 ## Installation
+```
+$ cd ./lit-april-flow
+$ npm install
+$ npm start
+```
+
+Project will run on localhost:3030/
 
 
 ## Overall
