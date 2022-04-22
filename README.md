@@ -39,7 +39,7 @@ https://lit-april-flow.vercel.app/
 
 ### Task 4
 -	Name must not have any number (Just check and console.log()) ✔
--	Email  must be checked and validated (Just check and console.log()) ✔
+-	Email  must be checked and validated (Just check and console.log(), have a look in /src/components/Page4.Form.js) ✔
 -	User’s selections for the checkbox must be saved correctly ❌
 -	“Back to survey” button must bring users back to the last question that they are at ✔
 -	“Submit” button must save all the user’s answers and info to a structuralized text file ❌
